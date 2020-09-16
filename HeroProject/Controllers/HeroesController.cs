@@ -33,7 +33,7 @@ namespace HeroProject.Controllers
         {
             //query the db to find the hero with the correct id
             var hero = _db.Heroes.Where(a => a.Id == id).FirstOrDefault();
-            return View();
+            return View(hero);
         }
 
         // GET: Heroes/Create
