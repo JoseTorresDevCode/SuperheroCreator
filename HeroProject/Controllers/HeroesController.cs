@@ -22,7 +22,10 @@ namespace HeroProject.Controllers
         // GET: Heroes
         public ActionResult Index()//default view
         {
-            return View();
+            //query for the heroes you want to display
+            //pass that var to the view
+            var superheroes = _db.Heroes;
+            return View(superheroes);
         }
 
         // GET: Heroes/Details/5
