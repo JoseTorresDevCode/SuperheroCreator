@@ -32,7 +32,7 @@ namespace HeroProject.Controllers
         public ActionResult Details(int id)
         {
             //query the db to find the hero with the correct id
-            //var hero = ....
+            var hero = _db.Heroes.Where(a => a.Id == id).FirstOrDefault();
             return View();
         }
 
