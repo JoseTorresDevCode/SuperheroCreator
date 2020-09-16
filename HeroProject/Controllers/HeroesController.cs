@@ -63,16 +63,19 @@ namespace HeroProject.Controllers
         // GET: Heroes/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var editHero = _db.Heroes.Where(h => h.Id == id).FirstOrDefault();
+            return View(editHero);
         }
-
+         
         // POST: Heroes/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, SuperHero superhero)
         {
             try
             {
+                _db.Heroes.Update(superhero);
+                _db.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
             catch
